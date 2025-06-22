@@ -24,7 +24,7 @@ A React app showcasing a list of movies, tasks, and posts with full support for 
 1. **Clone the repo**
 
 ```bash
-
+https://github.com/PLP-MERN-Stack-Development/week-3-react-js-assignment-BoitumeloMonyebodi.git
 cd react-movies
 Install dependencies
 
