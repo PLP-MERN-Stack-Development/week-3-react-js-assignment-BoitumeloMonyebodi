@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -67,3 +68,19 @@ Button.propTypes = {
 };
 
 export default Button; 
+=======
+export default function Button({ variant = "primary", children, ...props }) {
+  let base = "px-4 py-2 rounded font-semibold transition ";
+  let variants = {
+    primary: "bg-blue-600 text-white hover:bg-blue-700",
+    secondary: "bg-gray-300 text-gray-800 hover:bg-gray-400",
+    danger: "bg-red-600 text-white hover:bg-red-700",
+  };
+
+  return (
+    <button className={base + (variants[variant] || variants.primary)} {...props}>
+      {children}
+    </button>
+  );
+}
+>>>>>>> ba8f39d (Normalize line endings)

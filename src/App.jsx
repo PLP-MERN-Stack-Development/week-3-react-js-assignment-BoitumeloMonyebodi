@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import './App.css';
 
@@ -70,3 +71,30 @@ function App() {
 }
 
 export default App; 
+=======
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext"; // we'll create this next
+import Layout from "./components/Layout";
+import TaskManager from "./components/TaskManager"; // to create
+import Posts from "./components/Posts";             // to create
+import MoviesList from "./components/MoviesList";   // to create or placeholder
+
+function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<div className="text-center text-2xl mt-20">Welcome to React Movies!</div>} />
+            <Route path="/movies" element={<MoviesList />} />
+            <Route path="/tasks" element={<TaskManager />} />
+            <Route path="/posts" element={<Posts />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+>>>>>>> ba8f39d (Normalize line endings)
