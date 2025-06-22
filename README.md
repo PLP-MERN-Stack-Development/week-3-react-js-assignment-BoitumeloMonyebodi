@@ -1,86 +1,70 @@
-<<<<<<< HEAD
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19825712&assignment_repo_type=AssignmentRepo)
-# React.js and Tailwind CSS Assignment
+# React Movies
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+A React app showcasing a list of movies, tasks, and posts with full support for light/dark themes using Tailwind CSS.
 
-## Assignment Overview
+## Features
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+- Movie list with posters and links
+- Task manager (placeholder)
+- Posts fetched from JSONPlaceholder API
+- Responsive design with Tailwind CSS
+- Dark mode toggle with persistent user preference
+- Routing with React Router
 
-## Getting Started
+## Tech Stack
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+- React (with hooks)
+- React Router DOM
+- Tailwind CSS (dark mode enabled with `class` strategy)
+- Vite (build tool)
+- JSONPlaceholder API for posts data
 
-## Files Included
+## Setup Instructions
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+1. **Clone the repo**
 
-## Requirements
+```bash
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+cd react-movies
+Install dependencies
 
-## Project Structure
+bash
+Copy code
+npm install
+Run the development server
 
-```
-src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
-```
+bash
+Copy code
+npm run dev
+Open http://localhost:5173 in your browser.
 
-## Submission
+Dark Mode Usage
+Click the Dark Mode / Light Mode toggle button in the navbar.
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Your theme preference is saved and will persist across sessions.
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+Project Structure
+/src/components — UI components (Navbar.jsx, Layout.jsx, MoviesList.jsx, TaskManager.jsx, Posts.jsx, etc.)
 
-## Resources
+/src/context — Theme context (ThemeContext.jsx)
 
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
-=======
-# React + Vite
+/src/App.jsx — Main app with routes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+/tailwind.config.js — Tailwind CSS configuration
 
-Currently, two official plugins are available:
+Tailwind Configuration Snippet
+js
+Copy code
+// tailwind.config.js
+module.exports = {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+Notes
+Make sure your index.html does NOT have the dark class on <html>, as the app toggles it dynamically.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> ba8f39d (Normalize line endings)
+Use Tailwind’s dark: variants to style components for dark 
