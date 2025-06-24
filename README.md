@@ -25,7 +25,7 @@ A responsive front-end application built with **React**, **Tailwind CSS**, and *
 ### Steps
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/PLP-MERN-Stack-Development/week-3-react-js-assignment-BoitumeloMonyebodi.git
 cd react-tailwind-taskmanager
 npm install
 npm run dev
