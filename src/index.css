@@ -1,12 +1,8 @@
-<<<<<<< HEAD
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-=======
-/* Tailwind directives */
-tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 html {
   scroll-behavior: smooth;
@@ -21,4 +17,3 @@ body {
   background-color: #1a202c;
   color: white;
 }
->>>>>>> 09f2551 (initial commit)
