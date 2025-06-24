@@ -1,85 +1,152 @@
-<<<<<<< HEAD
-# React Movies
+# React + Tailwind Task Manager
 
-A React app showcasing a list of movies, tasks, and posts with full support for light/dark themes using Tailwind CSS.
+A responsive front-end application built with **React**, **Tailwind CSS**, and **Vite**. It demonstrates component-based architecture, theme switching, task management with local storage, and external API data fetching.
 
-## Features
+---
 
-- Movie list with posters and links
-- Task manager (placeholder)
-- Posts fetched from JSONPlaceholder API
-- Responsive design with Tailwind CSS
-- Dark mode toggle with persistent user preference
-- Routing with React Router
+## 🔧 Features
 
-## Tech Stack
+* Add, complete, and delete tasks
+* Filter by All / Active / Completed
+* Persistent data via `useLocalStorage`
+* Theme switcher with light/dark modes
+* JSONPlaceholder API integration
+* Reusable components (`Button`, `Card`, `Navbar`, `Footer`)
+* Responsive design with Tailwind CSS
 
-- React (with hooks)
-- React Router DOM
-- Tailwind CSS (dark mode enabled with `class` strategy)
-- Vite (build tool)
-- JSONPlaceholder API for posts data
+---
 
-## Setup Instructions
+## 🛠 Installation
 
-1. **Clone the repo**
+### Prerequisites
+
+* Node.js v18+
+
+### Steps
 
 ```bash
-https://github.com/PLP-MERN-Stack-Development/week-3-react-js-assignment-BoitumeloMonyebodi.git
-cd react-movies
-Install dependencies
-
-bash
-Copy code
+git clone <your-repo-url>
+cd react-tailwind-taskmanager
 npm install
-Run the development server
-
-bash
-Copy code
 npm run dev
-Open http://localhost:5173 in your browser.
+```
 
-Dark Mode Usage
-Click the Dark Mode / Light Mode toggle button in the navbar.
+Visit [http://localhost:5173](http://localhost:5173)
 
-Your theme preference is saved and will persist across sessions.
+---
 
-Project Structure
-/src/components — UI components (Navbar.jsx, Layout.jsx, MoviesList.jsx, TaskManager.jsx, Posts.jsx, etc.)
+## 🗂 Project Structure
 
-/src/context — Theme context (ThemeContext.jsx)
+```
+src/
+├── components/       # Reusable components
+├── context/          # ThemeContext
+├── hooks/            # useLocalStorage hook
+├── pages/            # Home, Posts, TaskManager
+├── App.jsx
+├── main.jsx
+├── index.css         # Tailwind base and dark mode styles
+```
 
-/src/App.jsx — Main app with routes
+### Example index.css
 
-/tailwind.config.js — Tailwind CSS configuration
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-Tailwind Configuration Snippet
-js
-Copy code
-// tailwind.config.js
-module.exports = {
-  darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-Notes
-Make sure your index.html does NOT have the dark class on <html>, as the app toggles it dynamically.
+html {
+  scroll-behavior: smooth;
+}
 
-Use Tailwind’s dark: variants to style components for dark 
-=======
-# React + Vite
+body {
+  background-color: white;
+  color: black;
+}
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+.dark body {
+  background-color: #1a202c;
+  color: white;
+}
+```
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Deployment
 
-## Expanding the ESLint configuration
+You can deploy on:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 09f2551 (initial commit)
+* [Vercel](https://vercel.com)
+* [Netlify](https://netlify.com)
+* GitHub Pages (requires Vite configuration)
+
+### Example Build Settings:
+
+* **Build Command**: `npm run build`
+* **Output Directory**: `dist`
+
+---
+
+## 📸 Screenshots
+
+Include screenshots in a `/screenshots/` directory and embed them like so:
+
+```
+/screenshots/
+├── light-mode.png
+├── dark-mode.png
+├── task-manager.png
+├── posts-api.png
+```
+
+### How the Task Manager Looks
+
+The Task Manager displays a list of tasks that can be:
+
+* Added via an input form
+* Marked as completed using a checkbox
+* Deleted with a button
+* Filtered (All, Active, Completed) via tabs or buttons
+
+It uses `useState`, `useEffect`, `useContext` (for theme), and `useLocalStorage` for persistence.
+
+### How the Posts API Page Looks
+
+The Posts page fetches posts from JSONPlaceholder and displays:
+
+* A list or grid of post cards with a title and body
+* A search bar to filter posts by keyword
+* Loading and error states
+* Optional pagination or infinite scroll
+
+### Embedded Screenshots
+
+![Light Mode](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/light-mode.png)
+![Dark Mode](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/dark-mode.png)
+![Task Manager](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/task-manager.png)
+![Posts API](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/posts-api.png)
+
+> 🔁 Replace `your-username` and repo path with your actual GitHub info after upload.
+
+---
+
+## ✅ Assignment Checklist
+
+* [x] Tailwind CSS configured
+* [x] Routing with React Router
+* [x] Reusable components
+* [x] Theme toggle
+* [x] Task manager with hooks
+* [x] API fetch with loading/error
+* [x] Responsive layout
+* [x] Clean code structure
+
+---
+
+## 🔗 Live Demo
+
+Add your deployed app URL here:
+
+```md
+https://your-app-name.vercel.app
+```
