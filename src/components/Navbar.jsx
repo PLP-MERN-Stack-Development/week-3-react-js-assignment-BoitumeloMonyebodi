@@ -1,58 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext.jsx';
+import Button from './button.jsx';
 
-export default function Navbar() {
+const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-md p-4 flex justify-between items-center max-w-4xl mx-auto w-full transition-colors duration-300">
-      <div className="text-2xl font-bold">
-        <Link to="/">ReactMovies</Link>
+    <nav className="bg-blue-600 text-white p-4">
+      <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
+        <div className="text-lg font-bold">My Task Manager</div>
+        <div className="space-x-4 flex items-center">
+          <Link to="/" className="hover:underline">Home</Link>
+          <Link to="/posts" className="hover:underline">Posts</Link>
+          <Link to="/tasks" className="hover:underline">Tasks</Link>
+          <Button onClick={toggleTheme} variant="secondary">
+            {theme === 'light' ? 'Dark' : 'Light'} Mode
+          </Button>
+        </div>
       </div>
-
-      <ul className="flex space-x-6">
-        <li>
-          <Link
-            to="/"
-            className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/movies"
-            className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200"
-          >
-            Movies
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/tasks"
-            className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200"
-          >
-            Tasks
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/posts"
-            className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-200"
-          >
-            Posts
-          </Link>
-        </li>
-      </ul>
-
-      <button
-        onClick={toggleTheme}
-        className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-3 py-1 rounded transition-colors duration-300"
-        aria-label="Toggle theme"
-      >
-        {theme === "dark" ? "Light Mode" : "Dark Mode"}
-      </button>
     </nav>
   );
-}
+};
+
+export default Navbar;
+
