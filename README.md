@@ -89,7 +89,7 @@ You can deploy on:
 
 ## 📸 Screenshots
 
-Include screenshots in a `/screenshots/` directory and embed them like so:
+Include screenshots
 
 ```
 /screenshots/
@@ -126,7 +126,6 @@ The Posts page fetches posts from JSONPlaceholder and displays:
 ![Task Manager](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/task-manager.png)
 ![Posts API](https://raw.githubusercontent.com/your-username/react-tailwind-taskmanager/main/screenshots/posts-api.png)
 
-> 🔁 Replace `your-username` and repo path with your actual GitHub info after upload.
 
 ---
 
