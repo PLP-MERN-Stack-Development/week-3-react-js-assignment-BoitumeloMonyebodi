@@ -8,47 +8,46 @@ import AddFoodRecipe from './pages/AddFoodRecipe';
 import EditRecipe from './pages/EditRecipe';
 import RecipeDetails from './pages/RecipeDetails';
 
-// Base API URL
-const API = 'http://localhost:5000';
-
-// 🥗 Get all recipes from backend
+// Load all recipes
 const getAllRecipes = async () => {
   try {
-    const res = await axios.get(`${API}/recipe`);
+    const res = await axios.get('http://localhost:5000/recipe');
     return res.data;
-  } catch (err) {
-    console.error("Error fetching all recipes:", err);
-    throw err;
+  } catch (error) {
+    console.error("Error fetching all recipes:", error);
+    return [];
   }
 };
 
-// 👨‍🍳 Get only recipes created by the logged-in user
+// Load user's own recipes
 const getMyRecipes = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const allRecipes = await getAllRecipes();
-  return allRecipes.filter(item => item.createdBy === user?._id);
+  return user?._id
+    ? allRecipes.filter(item => item.createdBy === user._id)
+    : [];
 };
 
-// ❤️ Get user's favorite recipes from localStorage
+// Load favorite recipes
 const getFavRecipes = () => {
   return JSON.parse(localStorage.getItem("fav")) || [];
 };
 
-// 🍽️ Get one recipe with author's email
+// Load a single recipe with user email
 const getRecipe = async ({ params }) => {
   try {
-    const recipeRes = await axios.get(`${API}/recipe/${params.id}`);
-    const recipe = recipeRes.data;
+    const res = await axios.get(`http://localhost:5000/recipe/${params.id}`);
+    let recipe = res.data;
 
-    const userRes = await axios.get(`${API}/user/${recipe.createdBy}`);
+    const userRes = await axios.get(`http://localhost:5000/user/${recipe.createdBy}`);
     return { ...recipe, email: userRes.data.email };
-  } catch (err) {
-    console.error("Error fetching single recipe:", err);
-    throw err;
+  } catch (error) {
+    console.error("Error fetching recipe details:", error);
+    return null;
   }
 };
 
-// Set up React Router
+// Route configuration
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,14 +63,7 @@ const router = createBrowserRouter([
   }
 ]);
 
-// App Entry Point
+// App entry
 export default function App() {
-  return (
-    <RouterProvider 
-      router={router}
-      fallbackElement={<p>Loading...</p>} // Fixes hydration fallback warning
-    />
-  );
+  return <RouterProvider router={router} />;
 }
-
-

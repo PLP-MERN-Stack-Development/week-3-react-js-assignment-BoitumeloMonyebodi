@@ -12,58 +12,48 @@ export default function InputForm({ setIsOpen }) {
     const endpoint = isSignUp ? "signUp" : "login";
 
     try {
-      const res = await axios.post(`http://localhost:5000/${endpoint}`, {
-        email,
-        password
-      });
-
-      // Save token and user in localStorage
+      const res = await axios.post('http://localhost:5000/${endpoint}', { email, password });
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-
-      // Close modal
-      setIsOpen();
+      setIsOpen(); // Close the form/modal
     } catch (err) {
-      console.error("Auth error:", err);
       setError(err.response?.data?.error || "Something went wrong");
     }
   };
 
   return (
-    <>
-      <form className='form' onSubmit={handleOnSubmit}>
-        <div className='form-control'>
-          <label>Email</label>
-          <input
-            type="email"
-            className='input'
-            autoComplete="email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+    <form className="form" onSubmit={handleOnSubmit}>
+      <div className="form-control">
+        <label>Email</label>
+        <input
+          type="email"
+          className="input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
 
-        <div className='form-control'>
-          <label>Password</label>
-          <input
-            type="password"
-            className='input'
-            autoComplete={isSignUp ? "new-password" : "current-password"}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+      <div className="form-control">
+        <label>Password</label>
+        <input
+          type="password"
+          className="input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
 
-        <button type='submit'>
-          {isSignUp ? "Sign Up" : "Login"}
-        </button>
+      <button type="submit">
+        {isSignUp ? "Sign Up" : "Login"}
+      </button>
 
-        {error && <h6 className='error'>{error}</h6>}
+      {error && <h6 className="error">{error}</h6>}
 
-        <p onClick={() => setIsSignUp(prev => !prev)}>
-          {isSignUp ? "Already have an account?" : "Create new account"}
-        </p>
-      </form>
-    </>
+      <p onClick={() => setIsSignUp((prev) => !prev)} style={{ cursor: 'pointer', marginTop: '10px' }}>
+        {isSignUp ? "Already have an account? Login" : "Create new account"}
+      </p>
+    </form>
   );
 }

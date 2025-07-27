@@ -25,10 +25,7 @@ export default function Home() {
             <section className='home'>
                 <div className='left'>
                     <h1>Food Recipe</h1>
-                     <h5>
-  Welcome to Boitumelo’s kitchen — a place where joy is the main ingredient and every dish tells a story. Here, food is more than just fuel; it's a celebration of tradition, creativity, and connection. Whether you're discovering new flavors or sharing your own family recipes, this space is made to inspire warmth, togetherness, and a deep love for cooking. Join me on a journey where every bite brings comfort, every recipe carries a memory, and joy is always served at the center of the table.
-</h5>
-
+                    <h5>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</h5>
                     <button onClick={addRecipe}>Share your recipe</button>
                 </div>
                 <div className='right'>
@@ -45,3 +42,4 @@ export default function Home() {
         </>
     )
 }
+
