@@ -68,7 +68,7 @@ happinessboitumelo101@gmail.com
 
 🪄 Live Demo
 🌍 Coming Soon on Vercel or Netlify!
-
+https://app.netlify.com/projects/stellular-kheer-06baa2
 
 📝 License
 This project is open source and free to use for learning 
